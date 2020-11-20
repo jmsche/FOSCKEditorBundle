@@ -9,6 +9,7 @@
 /.php_cs.cache
 
 # PHPUnit
+/.phpunit.result.cache
 /build
 /phpunit.xml
 

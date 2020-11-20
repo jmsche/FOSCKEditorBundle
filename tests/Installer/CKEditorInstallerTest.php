@@ -234,7 +234,7 @@ class CKEditorInstallerTest extends TestCase
 
         if (CKEditorInstaller::RELEASE_CUSTOM === ($options['release'] ?? '')) {
             $this->assertFileExists($this->path.'/build-config.js');
-            $this->assertContains($options['custom_build_id'], file_get_contents($this->path.'/build-config.js'));
+            $this->assertStringContainsString($options['custom_build_id'], file_get_contents($this->path.'/build-config.js'));
         } else {
             if (isset($options['release'])) {
                 $this->assertRelease($options['release']);
@@ -278,7 +278,7 @@ class CKEditorInstallerTest extends TestCase
     {
         $package = json_decode(file_get_contents($this->path.'/package.json'), true);
 
-        $this->assertInternalType('array', $package);
+        $this->assertIsArray($package);
         $this->assertArrayHasKey('version', $package);
         $this->assertSame($version, $package['version']);
     }
